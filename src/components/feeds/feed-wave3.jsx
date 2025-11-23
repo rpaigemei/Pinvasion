@@ -54,7 +54,7 @@ function Feed3({ startScrolling, setAdsPassed, setMisclicks, setAdClicks }) {
 
     useEffect(() => {
         const preload = async () => {
-            const initialPins = await fetchPins(20);
+            const initialPins = await fetchPins(100);
             setPins(initialPins);
         };
 
@@ -69,7 +69,7 @@ function Feed3({ startScrolling, setAdsPassed, setMisclicks, setAdClicks }) {
         const interval = setInterval(async () => {
             const newPins = await fetchPins(5);
             setPins((prev) => [...prev, ...newPins]);
-        }, 1000);
+        }, 2000);
 
         return () => clearInterval(interval);
     }, [startScrolling]);
@@ -81,7 +81,7 @@ function Feed3({ startScrolling, setAdsPassed, setMisclicks, setAdClicks }) {
             return;
         }
 
-        const scrollSpeed = 5;
+        const scrollSpeed = 4.5;
         let animationFrame;
 
         const step = () => {
