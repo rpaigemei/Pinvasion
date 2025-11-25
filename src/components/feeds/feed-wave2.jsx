@@ -81,7 +81,7 @@ function Feed2({ startScrolling, setAdsPassed, setMisclicks, setAdClicks }) {
             return;
         }
 
-        const scrollSpeed = 2.75;
+        const scrollSpeed = 3;
         let animationFrame;
 
         const step = () => {
