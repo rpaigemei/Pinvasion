@@ -2,38 +2,38 @@ import React, { useState, useEffect, useRef } from "react";
 import Masonry from "react-masonry-css";
 import Pin from "../pin";
 
-const PEXEL_KEY = import.meta.env.VITE_PEXELS_KEY;
-
 const fetchPins = async (count = 10) => {
   try {
-    const queries = ["nature", "city", "technology", "abstract", "food"];
-    const query = queries[Math.floor(Math.random() * queries.length)];
-    const page = Math.floor(Math.random() * 50) + 1;
+    const ratios = [
+        {w: 1000, h: 1000},
+        {w: 1600, h: 900},
+        {w: 1600, h: 2000},
+        {w: 1200, h: 800},
+        {w: 900, h: 1600},
+        {w: 1200, h: 800},
+        {w: 1600, h: 1000},
+    ]
 
-    const res = await fetch(
-        `https://api.pexels.com/v1/search?query=${query}&per_page=${count}&page=${page}`,
-        {
-            headers: {
-                Authorization: PEXEL_KEY
-            }
-        }
-    );
+    const randomRatio = () => {
+        return ratios[Math.floor(Math.random() * ratios.length)];
+    };
 
-    const data = await res.json();
-    
-    const pins = data.photos.map(photo => ({
-        id: `${photo.id}-${crypto.randomUUID()}`,
-        image: photo.src.large,
-        alt: photo.alt || "Pexels image",
-        author: photo.photographer,
-        type: Math.random() < 0.4 ? "ad" : "normal",
-        removed: false,
-    }));
+    const pins = Array.from({ length: count }).map(() => {
+        const { w, h } = randomRatio();
+
+        return {
+            id: crypto.randomUUID(),
+            image: `https://picsum.photos/${w}/${h}?random=${Math.random()}`,
+            alt: "Lorem Picsum image",
+            type: Math.random() < 0.4 ? "ad" : "normal",
+            removed: false,
+        };
+    });
 
     return pins;
   }
   catch (err) {
-    console.error("Error fetching Pexels images:", err);
+    console.error("Error fetching Picsum images:", err);
     
     return [];
   }
@@ -54,7 +54,7 @@ function Feed2({ startScrolling, setAdsPassed, setMisclicks, setAdClicks }) {
 
     useEffect(() => {
         const preload = async () => {
-            const initialPins = await fetchPins(60);
+            const initialPins = await fetchPins(100);
             setPins(initialPins);
         };
 
