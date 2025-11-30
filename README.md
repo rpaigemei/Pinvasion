@@ -1,16 +1,9 @@
-# React + Vite
+### Creative Project 3: Culture Jamming
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Pinvasion**
 
-Currently, two official plugins are available:
+Pinvasion is a game where players try to preserve the authenticity of a Pinterest-style feed by removing the invasive ads. As ads multiply and scroll faster each wave, players must keep the feed “alive” in a platform where commercial content is quietly taking over. It mimics the recognizable aesthetic of Pinterest to critique the growing amount of ads present in popular social media platforms and how they seamlessly blend into the feeds.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The game was developed in React.js, using React hooks to implement the game mechanics. It is deployed through Netlify, making it a web browser game. The images used in the posts are fetched from the Lorem Picsum API. 
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*DIG6647 History & Theory of Digital Media*
